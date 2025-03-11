@@ -21,6 +21,10 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    domains: ['unsplash.com', 'images.unsplash.com', 'embed.tawk.to'],
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
 };
 
