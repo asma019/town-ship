@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import dynamic from "next/dynamic";
-
-// Dynamically import TawkToChat with no SSR to avoid window is not defined errors
-const TawkToChat = dynamic(() => import("./components/TawkToChat"), { ssr: false });
+import TawkToChatWrapper from "./components/TawkToChatWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +20,7 @@ export default function RootLayout({
     <html lang="bn">
       <body className={inter.className}>
         {children}
-        <TawkToChat />
+        <TawkToChatWrapper />
       </body>
     </html>
   );
