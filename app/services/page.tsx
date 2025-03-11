@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'আমাদের সেবাসমূহ | টাউনশিপ অনলাইন সেবা',

@@ -17,7 +17,7 @@ const Header = () => {
         month: 'long',
         day: 'numeric',
       }));
-    } catch (error) {
+    } catch (_) {
       // Fallback for locales that might not be supported
       setCurrentDate(date.toLocaleDateString('en-US', {
         weekday: 'long',

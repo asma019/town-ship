@@ -17,7 +17,7 @@ const RunningNotice = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [notices.length]);
 
   return (
     <div className="bg-blue-600 text-white py-3 overflow-hidden">

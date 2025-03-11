@@ -1,5 +1,27 @@
 import nodemailer from 'nodemailer';
 
+// Define interfaces for email data
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone?: string;
+  subject?: string;
+  message: string;
+}
+
+interface VolunteerFormData {
+  name: string;
+  email: string;
+  phone?: string;
+  address?: string;
+  bloodGroup?: string;
+  occupation?: string;
+  interests?: string[];
+  message?: string;
+}
+
+type EmailData = ContactFormData | VolunteerFormData;
+
 // SMTP configuration using environment variables
 const smtpConfig = {
   host: process.env.SMTP_HOST || 'mail.townshiponlineseba.com',
@@ -16,7 +38,7 @@ const transporter = nodemailer.createTransport(smtpConfig);
 
 // Email templates
 const emailTemplates = {
-  contact: (data: any) => ({
+  contact: (data: ContactFormData) => ({
     subject: `নতুন যোগাযোগ: ${data.subject || 'কোন বিষয় উল্লেখ করা হয়নি'}`,
     text: `
       নাম: ${data.name}
@@ -44,7 +66,7 @@ const emailTemplates = {
       </div>
     `,
   }),
-  volunteer: (data: any) => ({
+  volunteer: (data: VolunteerFormData) => ({
     subject: `নতুন ভলান্টিয়ার আবেদন: ${data.name}`,
     text: `
       নাম: ${data.name}
@@ -89,9 +111,11 @@ const emailTemplates = {
 };
 
 // Email sending function
-export async function sendEmail(type: 'contact' | 'volunteer', data: any) {
+export async function sendEmail(type: 'contact' | 'volunteer', data: EmailData) {
   try {
-    const template = emailTemplates[type](data);
+    const template = type === 'contact' 
+      ? emailTemplates.contact(data as ContactFormData)
+      : emailTemplates.volunteer(data as VolunteerFormData);
     
     const mailOptions = {
       from: `"টাউনশিপ অনলাইন সেবা" <${process.env.SMTP_FROM || 'noreply@townshiponlineseba.com'}>`,

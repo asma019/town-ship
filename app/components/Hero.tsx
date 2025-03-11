@@ -29,7 +29,7 @@ const Hero = () => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   return (
     <div className="relative h-[500px] overflow-hidden">
