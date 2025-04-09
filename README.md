@@ -17,8 +17,8 @@
 
 ```bash
 # রিপোজিটরি ক্লোন করুন
-git clone https://github.com/your-username/township-online-service.git
-cd township-online-service
+git clone https://github.com/asma019/town-ship.git
+cd town-ship
 
 # ডিপেন্ডেন্সি ইনস্টল করুন
 npm install
@@ -106,8 +106,8 @@ Follow these steps to run the project locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/township-online-service.git
-cd township-online-service
+git clone https://github.com/asma019/town-ship.git
+cd town-ship
 
 # Install dependencies
 npm install
@@ -222,9 +222,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contact
-
-For any queries, please contact:
-- Email: info@townshiponlineseba.com
-- Phone: +8801700962537
